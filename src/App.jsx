@@ -9,6 +9,7 @@ function App() {
 
   return (
     <>
+    <div className='px-2 sm:px-10 md:px-15 lg:px-20 overflow-x-hidden'>
     <Header />
      <section id='hero'>
       <button>jhgg</button> javahir
@@ -18,6 +19,7 @@ function App() {
      <section id='contact' className='bg-blue-400'></section>
      <section id='testimonials' className='bg-yellow-400'></section>
      <Footer /> 
+     </div>
     </>
   )
 }

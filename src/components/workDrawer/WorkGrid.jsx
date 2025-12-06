@@ -32,8 +32,8 @@ const WorkGrid = () => {
 
   return (
     <>
-      <section className=" py-20 px-4">
-        <div className="max-w-7xl mx-auto mb-10">
+      <section className="py-10">
+        <div className="  mb-10">
           <h2 className="text-yellow-400 text-3xl font-bold uppercase font-montserrat">
             Glimpse of Work
           </h2>
@@ -45,13 +45,12 @@ const WorkGrid = () => {
         <div
           ref={gridRef}
           className="
-            max-w-7xl mx-auto
+            max-w-7xl 
             grid gap-4
             grid-cols-1
             sm:grid-cols-2
             lg:grid-cols-3
-            auto-rows-[280px]
-            grid-flow-dense
+            bg-red-200
           "
         >
           {works.map((item) => (
