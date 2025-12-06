@@ -14,7 +14,7 @@ function App() {
       <button>jhgg</button> javahir
      </section>
      <section id='hero' className='bg-green-400'></section>
-     <section id='work' className='bg-red-400 '><WorkGrid /></section>
+     <section id='work' className=''><WorkGrid /></section>
      <section id='contact' className='bg-blue-400'></section>
      <section id='testimonials' className='bg-yellow-400'></section>
      <Footer /> 

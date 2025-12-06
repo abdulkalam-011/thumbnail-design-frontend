@@ -3,7 +3,7 @@ import gsap from "gsap";
 
 const PreviewModal = ({ item, onClose }) => {
   const modalRef = useRef(null);
-
+ console.log(item)
   useEffect(() => {
     gsap.from(modalRef.current, {
       scale: 0.9,
@@ -21,19 +21,19 @@ const PreviewModal = ({ item, onClose }) => {
       <div
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className="bg-neutral-900 rounded-xl max-w-5xl w-full p-6 max-h-screen overflow-y-auto h-full"
+        className="bg-neutral-900 rounded-xl max-w-5xl w-full p-6 max-h-screen overflow-y-auto h-fit relative min-w-5xl min-h-1/2"
       >
-        <div className="h-[300px] bg-orange-400 rounded-lg mb-4" >{item.image}</div>
+        <div className="h-fit bg-orange-400 rounded-lg mb-4 relative" >
+          <img src={item.img} alt={item.titles} />
+        </div>
 
         
 
-        <p className="text-gray-400 mt-2 text-sm">
-          Short description of this project goes here.
-        </p>
+       
 
         <button
           onClick={onClose}
-          className="mt-6 px-4 py-2 bg-yellow-400 text-black rounded-md"
+          className="mt-6 px-4 py-2 bg-yellow-400 text-black rounded-md absolute top-4 right-10"
         >
           Close
         </button>

@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { works } from "../data/works";
+
 import PreviewModal from "./PreviewModal";
+import { useSelector } from "react-redux";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WorkGrid = () => {
+  const works = useSelector((state) => state.work.data);
   const gridRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
 
@@ -30,9 +32,9 @@ const WorkGrid = () => {
 
   return (
     <>
-      <section className="bg-black py-20 px-4">
+      <section className=" py-20 px-4">
         <div className="max-w-7xl mx-auto mb-10">
-          <h2 className="text-yellow-400 text-3xl font-bold uppercase">
+          <h2 className="text-yellow-400 text-3xl font-bold uppercase font-montserrat">
             Glimpse of Work
           </h2>
           <p className="text-gray-400 text-sm mt-2">
@@ -48,7 +50,7 @@ const WorkGrid = () => {
             grid-cols-1
             sm:grid-cols-2
             lg:grid-cols-3
-            auto-rows-[180px]
+            auto-rows-[280px]
             grid-flow-dense
           "
         >
@@ -57,9 +59,10 @@ const WorkGrid = () => {
               key={item.id}
               onClick={() => setActiveItem(item)}
               className={`
-                work-card relative overflow-hidden cursor-pointer rounded-xl
+                work-card relative overflow-hidden cursor-pointer rounded-xl 
                 ${item.span}
               `}
+              
             >
               <img
                 src={item.img}
@@ -76,7 +79,7 @@ const WorkGrid = () => {
               <div className="
                 absolute inset-0
                 bg-black/40 opacity-0
-                hover:opacity-100
+                hover:opacity-40
                 transition-opacity
                 flex items-end p-4
               ">
