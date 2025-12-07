@@ -16,7 +16,7 @@ const PreviewModal = ({ item, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70  flex items-center justify-center px-4 w-full h-full"
+      className="fixed inset-0 z-50 bg-black/70  flex items-center justify-center px-4 "
       onClick={onClose}
     >
       <div
@@ -24,7 +24,7 @@ const PreviewModal = ({ item, onClose }) => {
         onClick={(e) => e.stopPropagation()}
         className="bg-neutral-900 rounded-xl sm:max-w-5xl w-full p-6 max-h-screen overflow-y-auto h-fit relative min-w-5xl min-h-1/2"
       >
-        <div className="h-fit bg-orange-400 rounded-lg mb-4 relative" >
+        <div className="h-fit  bg-orange-400 rounded-lg mb-4 relative" >
           <img src={item.img} alt={item.titles} className="rounded-lg"/>
         </div>
 

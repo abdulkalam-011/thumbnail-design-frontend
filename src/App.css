@@ -16,7 +16,6 @@
 section {
   min-height: 100vh;
   min-width: 100%;
-  cursor: pointer;
   font-family: "Bodoni Moda", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -33,4 +32,8 @@ section {
 
 .arrow:hover .arrow span{
   opacity: 100%;
+}
+
+.name {
+  transform: translateX(-100%);
 }

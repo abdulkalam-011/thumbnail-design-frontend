@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useSelector } from "react-redux";
 
 import PreviewModal from "./PreviewModal";
-import { useSelector } from "react-redux";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,17 +13,37 @@ const WorkGrid = () => {
   const gridRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
 
+  useGSAP(()=>{
+    gsap.from(".text", {
+      y:30,
+      
+      duration: 1,
+      ease: "power3.out",
+      opacity: 0,
+      scrollTrigger: {
+        trigger: gridRef.current,
+        start: "top 90%",
+        end: "top 80%",
+        scrub:1,
+      },
+     })
+  } );
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".work-card", {
-        y: 60,
+       y: 50,
         opacity: 0,
-        stagger: 0.15,
-        duration: 0.9,
+        width: "0",
+        repetition: 0,
+        stagger: 0.3,
+        duration: 1.5,
         ease: "power3.out",
         scrollTrigger: {
           trigger: gridRef.current,
           start: "top 80%",
+          scrub:1,
+         
         },
       });
     }, gridRef);
@@ -34,10 +55,10 @@ const WorkGrid = () => {
     <>
       <section className="py-10">
         <div className="  mb-10">
-          <h2 className="text-yellow-400 text-3xl font-bold uppercase font-montserrat">
-            Glimpse of Work
+          <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold uppercase font-montserrat text">
+            Glimpse of my Work
           </h2>
-          <p className="text-gray-400 text-sm mt-2">
+          <p className="text-gray-400 text-sm text">
             Selected visual projects
           </p>
         </div>
@@ -45,12 +66,11 @@ const WorkGrid = () => {
         <div
           ref={gridRef}
           className="
-            max-w-7xl 
+            max-w-8xl 
             grid gap-4
             grid-cols-1
             sm:grid-cols-2
             lg:grid-cols-3
-            bg-red-200
           "
         >
           {works.map((item) => (

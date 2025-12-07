@@ -4,8 +4,11 @@
   color: #e0e0e0;
   background-color: #313131;
 }
-
-body,html {
+::-webkit-scrollbar {
+  display: none;
+}
+body,
+html {
   min-height: 100vh;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -14,9 +17,30 @@ body,html {
 
 button {
   cursor: pointer;
-  background-color: red;
 }
 
 a {
   cursor: pointer;
+}
+
+
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  will-change: transform;
+  /* animation: marquee 14s linear infinite; */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduce text selection flicker on scroll */
+.marquee-track > * {
+  flex-shrink: 0;
 }
