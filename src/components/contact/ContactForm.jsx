@@ -98,7 +98,6 @@ const ContactForm = () => {
         name="contact"
         method="POST"
         data-netlify="true"
-        netlify
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-[#4c4a4a] py-6 px-2  md:p-6 space-y-4 rounded-md"
       >
