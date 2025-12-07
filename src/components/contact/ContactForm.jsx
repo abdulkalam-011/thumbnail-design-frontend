@@ -49,23 +49,33 @@ const ContactForm = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
-    const validationErrors = validate();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (Object.keys(validationErrors).length > 0) {
-      e.preventDefault();
-      setErrors(validationErrors);
-      shakeForm();
-      return;
-    }
-    setLoading(true);
-    // Simulate form submission delay
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   setSuccess(true);
-    // }, 2000);
-    // setSuccess(false)
-  };
+  const validationErrors = validate();
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    shakeForm();
+    return;
+  }
+
+  setLoading(true);
+
+  const formData = new FormData(e.target);
+
+  try {
+    await fetch("/", {
+      method: "POST",
+      body: formData,
+    });
+
+    setSuccess(true);
+  } catch (err) {
+    alert("Something went wrong. Try again.",err);
+  } finally {
+    setLoading(false);
+  }
+};
 
   // ✅ SUCCESS STATE
   if (success) {

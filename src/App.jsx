@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { HiH2 } from "react-icons/hi2";
 import "./App.css";
 import Contact from "./components/contact/Contact";
 import Hero from "./components/Hero";
