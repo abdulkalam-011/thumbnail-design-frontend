@@ -16,7 +16,6 @@ const WorkGrid = () => {
   useGSAP(()=>{
     gsap.from(".text", {
       y:30,
-      
       duration: 1,
       ease: "power3.out",
       opacity: 0,
@@ -35,7 +34,7 @@ const WorkGrid = () => {
        y: 50,
         opacity: 0,
         width: "0",
-        repetition: 0,
+        repeat: 0,
         stagger: 0.3,
         duration: 1.5,
         ease: "power3.out",
@@ -43,7 +42,6 @@ const WorkGrid = () => {
           trigger: gridRef.current,
           start: "top 80%",
           scrub:1,
-         
         },
       });
     }, gridRef);
@@ -78,7 +76,7 @@ const WorkGrid = () => {
               key={item.id}
               onClick={() => setActiveItem(item)}
               className={`
-                work-card relative overflow-hidden cursor-pointer rounded-xl 
+                work-card relative overflow-hidden cursor-pointer rounded-xl w-full md:w-auto
                 ${item.span}
               `}
               

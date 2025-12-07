@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useEffect } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -21,11 +20,7 @@ const Hero = () => {
     });
   });
 
-  useEffect(() => {
-    window.addEventListener("wheel", (e) => {
-      console.log(e.clientY);
-    });
-  });
+ 
   return (
     <>
       <div className=" grid lg:grid-cols-2 h-screen lg:gap-5 gap-2 text-white grid-rows-2 lg:grid-rows-1 relative">

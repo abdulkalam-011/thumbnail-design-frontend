@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const PreviewModal = ({ item, onClose }) => {
   const modalRef = useRef(null);
- console.log(item)
+
   useEffect(() => {
     gsap.from(modalRef.current, {
       scale: 0.9,
