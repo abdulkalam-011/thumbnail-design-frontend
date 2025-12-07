@@ -25,6 +25,7 @@ const ContactForm = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({});
+    setSuccess(false);
   };
 
   const validate = () => {
