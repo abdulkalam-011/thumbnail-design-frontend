@@ -44,7 +44,7 @@ const WorkGrid = () => {
           scrub:1,
         },
       });
-    }, gridRef);
+    }, [gridRef]);
 
     return () => ctx.revert();
   }, []);

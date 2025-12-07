@@ -80,8 +80,8 @@ const ContactForm = () => {
   // ✅ SUCCESS STATE
   if (success) {
     return (
-      <div className=" flex items-center justify-start bg-green-300 md:p-4 p-0 md:mt-10">
-        <div className="bg-[#454444] p-8 text-center text-white">
+      <div className=" flex items-center justify-start bg-green-300 md:p-4 p-0 md:mt-10 w-fit">
+        <div className=" p-8 text-center text-white">
           <h2 className="text-xl font-semibold mb-2">Thank you! 🙌</h2>
           <p className="text-sm opacity-80">
             Your message has been sent successfully.
@@ -98,6 +98,7 @@ const ContactForm = () => {
         name="contact"
         method="POST"
         data-netlify="true"
+        netlify
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-[#4c4a4a] py-6 px-2  md:p-6 space-y-4 rounded-md"
       >
