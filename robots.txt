@@ -1,0 +1,19 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location (update to your actual domain)
+Sitemap: https://abdulkalam-portfolio.com/sitemap.xml
+
+# Allow specific high-priority paths
+Allow: /images/
+Allow: /css/
+Allow: /js/

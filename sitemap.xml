@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://abdul-design.netlify.app/</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://abdul-design.netlify.app/images/hero.webp</image:loc>
+      <image:title>Abdul Kalam - Thumbnail Designer|#1 YouTube Thumbnail Designer</image:title>
+      <image:caption>Professional YouTube thumbnail designer. I create high-quality, eye-catching thumbnails that boost CTR and help content creators grow their channels. Affordable, fast, and results-driven.</image:caption>
+    </image:image>
+  <url>
+    <loc>https://abdulkalam-portfolio.com/#hero</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Work/Portfolio Section -->
+  <url>
+    <loc>https://abdulkalam-portfolio.com/#work</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://abdulkalam-portfolio.com/#contact</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Testimonials Section -->
+  <url>
+    <loc>https://abdulkalam-portfolio.com/#testimonials</loc>
+    <lastmod>2025-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
