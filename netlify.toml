@@ -12,8 +12,20 @@
   [headers.values]
     Content-Type = "text/plain"
 
+# Redirect all routes to index.html EXCEPT static files and special files
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   conditions = { Language = ["en"] }
+
+# Exclude static files and special files from redirect
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
