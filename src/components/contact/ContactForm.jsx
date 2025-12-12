@@ -80,7 +80,7 @@ const ContactForm = () => {
   // ✅ SUCCESS STATE
   if (success) {
     return (
-      <div className=" flex items-center justify-start bg-green-300 md:p-4 p-0 md:mt-10 w-fit">
+      <div className=" flex items-center justify-start bg-green-300 md:p-4 p-0 md:my-10 w-fit">
         <div className=" p-8 text-center text-white">
           <h2 className="text-xl font-semibold mb-2">Thank you! 🙌</h2>
           <p className="text-sm opacity-80">
@@ -98,7 +98,7 @@ const ContactForm = () => {
         name="contact"
         method="POST"
         data-netlify="true"
-        netlify
+        netlify="true"
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-[#4c4a4a] py-6 px-2  md:p-6 space-y-4 rounded-md"
       >
@@ -112,7 +112,7 @@ const ContactForm = () => {
             name="name"
             placeholder="John Doe"
             value={form.name}
-            focus={errors.name ? true : false}
+            focus={errors.name ? 'true' : 'false'}
             onChange={handleChange}
             className={`w-full bg-[#7a7a7a] text-white px-3 py-2 outline-none ${errors.name && "border border-red-500 focus:ring-2 focus:ring-red-500"}`}
           />

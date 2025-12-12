@@ -7,15 +7,16 @@ import PreviewModal from "./PreviewModal";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const WorkGrid = () => {
   const works = useSelector((state) => state.work.data);
   const gridRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
 
-  useGSAP(()=>{
+  useGSAP(() => {
     gsap.from(".text", {
-      y:30,
+      y: 30,
       duration: 1,
       ease: "power3.out",
       opacity: 0,
@@ -23,15 +24,15 @@ const WorkGrid = () => {
         trigger: gridRef.current,
         start: "top 90%",
         end: "top 80%",
-        scrub:1,
+        scrub: 1,
       },
-     })
-  } );
+    });
+  }, [gridRef]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".work-card", {
-       y: 50,
+        y: 50,
         opacity: 0,
         width: "0",
         repeat: 0,
@@ -41,7 +42,7 @@ const WorkGrid = () => {
         scrollTrigger: {
           trigger: gridRef.current,
           start: "top 80%",
-          scrub:1,
+          scrub: 1,
         },
       });
     }, [gridRef]);
@@ -56,9 +57,7 @@ const WorkGrid = () => {
           <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold uppercase font-montserrat text">
             Glimpse of my Work
           </h2>
-          <p className="text-gray-400 text-sm text">
-            Selected visual projects
-          </p>
+          <p className="text-gray-400 text-sm text">Selected visual projects</p>
         </div>
 
         <div
@@ -79,7 +78,6 @@ const WorkGrid = () => {
                 work-card relative overflow-hidden cursor-pointer rounded-xl w-full md:w-auto
                 ${item.span}
               `}
-              
             >
               <img
                 src={item.img}
@@ -93,16 +91,16 @@ const WorkGrid = () => {
               />
 
               {/* Hover overlay */}
-              <div className="
+              <div
+                className="
                 absolute inset-0
                 bg-black/40 opacity-0
                 hover:opacity-40
                 transition-opacity
                 flex items-end p-4
-              ">
-                <h3 className="text-white font-medium">
-                  {item.title}
-                </h3>
+              "
+              >
+                <h3 className="text-white font-medium">{item.title}</h3>
               </div>
             </div>
           ))}
@@ -110,10 +108,7 @@ const WorkGrid = () => {
       </section>
 
       {activeItem && (
-        <PreviewModal
-          item={activeItem}
-          onClose={() => setActiveItem(null)}
-        />
+        <PreviewModal item={activeItem} onClose={() => setActiveItem(null)} />
       )}
     </>
   );

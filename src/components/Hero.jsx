@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GoArrowUpRight } from "react-icons/go";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const Hero = () => {
   useGSAP(() => {
@@ -20,7 +21,6 @@ const Hero = () => {
     });
   });
 
- 
   return (
     <>
       <div className=" grid lg:grid-cols-2 h-screen lg:gap-5 gap-2 text-white grid-rows-2 lg:grid-rows-1 relative">
@@ -31,7 +31,8 @@ const Hero = () => {
               <span className="text-yellow-400 font-bold">portfolio.</span>
             </h3>
             <h1 className="text-[20px] lg:text-[40px] font-bold leading-5 lg:leading-10 font-montserrat mt-2 lg:mt-5 ">
-              Transform Your<br />
+              Transform Your
+              <br />
               Thumbnails into{" "}
               <span className="border-2 leading-tight px-3 border-dashed relative border-yellow-400 uppercase hover:bg-yellow-400 transition-all duration-300 ease-in-out">
                 clicks{" "}
@@ -39,14 +40,12 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-[12px] font-bodoni sm:py-5 md:text-[16px] py-2">
-              I help Youtubers by designing High Quality Thumbnails that
-              attract more Viewers to grow their channel and save their time.
+              I help Youtubers by designing High Quality Thumbnails that attract
+              more Viewers to grow their channel and save their time.
             </p>
             <div className="mt-2 text-md rounded-full p-2  bg-yellow-400 border-yellow-400  w-fit md:px-8 md:py-6 font-bold md:mt-5 md:text-2xl font-montserrat flex items-center gap-2 border md:hover:bg-yellow-400 md:hover:border-yellow-400 md:hover:text-black transition-all duration-300 ease-in-out md:border-white md:bg-transparent">
-            <a href="#contact">
-              Get Free Thumbnail 
-            </a>
-            <GoArrowUpRight />
+              <a href="#contact">Get Free Thumbnail</a>
+              <GoArrowUpRight />
             </div>
           </div>
         </div>
