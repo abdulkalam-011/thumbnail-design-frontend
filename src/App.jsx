@@ -7,6 +7,7 @@ import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import WorkGrid from "./components/workDrawer/WorkGrid";
 import { IoLogoWhatsapp } from "react-icons/io";
+import About from "./components/About";
 
 function App() {
   const [showMobileWarning, setShowMobileWarning] = useState(() =>
@@ -41,9 +42,13 @@ function App() {
         <section id="hero" className="">
           <Hero />
         </section>
-        <div id="hero" className="h-fit mt-10">
+        <div id="about" className="h-fit mt-10">
+          <About/>
+        </div>
+        <div id="compare-images" className="h-fit mt-10">
           <ImageComprison />
         </div>
+        
         <section id="work" className="">
           <WorkGrid />
         </section>
