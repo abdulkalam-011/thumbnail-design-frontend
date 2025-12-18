@@ -161,6 +161,7 @@ const About = () => {
             ref={imageRef}
             className="absolute inset-0 flex items-center justify-center"
           >
+            <img src="/images/profile.jpg" alt="pfofile-picture" />
             <div className="bg-yellow-400 w-[200px] sm:w-60 h-[130px] sm:h-[150px] rounded-full" />
           </div>
         </div>
