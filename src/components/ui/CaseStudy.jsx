@@ -76,8 +76,8 @@ export default function ThumbnailCaseStudy() {
     >
       {/* Header */}
       <div className="mb-14 max-w-3xl">
-        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-white">
-          Thumbnail Optimization — Case Study
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-yellow-400 ">
+          Thumbnail Optimization - Case Study
         </h2>
         <p className="mt-4 text-gray-400">
           Discovery-first redesign focused on improving mobile CTR while
@@ -127,7 +127,7 @@ export default function ThumbnailCaseStudy() {
             ref={imageRef}
             className="rounded-2xl overflow-hidden shadow-2xl border border-white/10"
           >
-            <CompareImage leftImage="/images/gtmsharma_raw.webp" rightImage="/images/fayefilms_1.webp" />
+            <CompareImage leftImage="/images/fayefilms_raw.png" rightImage="/images/fayefilms_1.webp" />
           </div>
 
           {/* Key Takeaways */}
