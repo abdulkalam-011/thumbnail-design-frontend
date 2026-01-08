@@ -10,8 +10,8 @@ const Contact = () => {
         <div className="w-full h-full py-5 lg:py-0 lg:pt-5  font-montserrat flex flex-col gap-2 md:gap-4 ">
           <div>
             {" "}
-            <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold uppercase font-montserrat text">
-              lets connect together
+            <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold font-montserrat text">
+              Let's Connect!
             </h2>
             <p className="font-bodoni text-[12px] md:text-[24px] leading-4 md:leading-8">
               I prefer to connect on{" "}
@@ -51,8 +51,8 @@ const Contact = () => {
         <div className="w-full h-full py-5 lg:py-0 lg:pt-5  font-montserrat flex flex-col gap-2 md:gap-4 ">
           <div>
             {" "}
-            <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold uppercase font-montserrat text">
-              just fill the form
+            <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold font-montserrat text">
+              Just Fill The Form
             </h2>
             <p className="font-bodoni text-[12px] md:text-[24px] leading-4 md:leading-8">
               to get your first thumbnail for{" "}
