@@ -28,7 +28,7 @@ export const workData = [
   },
   {
     id: 5,
-    img: "/images/tripti.webp",
+    img: "images/zakir-x-rajshamani.webp",
     title: "Project Five",
     span: "row-span-1",
   },

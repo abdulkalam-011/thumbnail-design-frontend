@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import gsap, { Elastic } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaBolt, FaRedoAlt, FaPaintBrush, FaVideo } from "react-icons/fa";
 
@@ -88,7 +88,7 @@ const About = () => {
           rotateX: 0,
           rotateY: 0,
           duration: 0.5,
-          ease: "power3.out",
+        ease: "elastic.out(1,0.3)"
         });
       };
 
@@ -183,12 +183,15 @@ const About = () => {
               <div
                 key={i}
                 ref={(el) => (cardsRef.current[i] = el)}
-                className="flex items-center gap-4 bg-yellow-400 text-black px-5 py-4 rounded-xl cursor-pointer justify-center sm:justify-start"
+                className="flex items-center gap-4 bg-yellow-400 text-black px-5 py-4 rounded-xl cursor-pointer sm:justify-start justify-evenly"
               >
-                <div className="bg-white p-3 rounded-full text-lg">
+                <div className="flex items-center gap-3">
+                  <div className="bg-white p-3 rounded-full text-lg">
                   {item.icon}
                 </div>
                 <span className="font-semibold">{item.text}</span>
+                </div>
+                
               </div>
             ))}
           </div>

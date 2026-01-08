@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactCompareImage from 'react-compare-image'
 
-const CompareImage = () => {
+const CompareImage = ({leftImage,rightImage}) => {
   return (
     
     <ReactCompareImage
-leftImage="images/gtmsharma_raw.webp"
-rightImage="images/hero.webp"
+leftImage={leftImage}
+rightImage={rightImage}
 sliderLineColor="#FFD700"
 handleSize={40}
-hover={false}
+hover={true}
 />
   )
 }

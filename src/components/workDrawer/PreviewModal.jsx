@@ -16,26 +16,54 @@ const PreviewModal = ({ item, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70  flex items-center justify-center px-4 "
+      className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-3 sm:px-6"
       onClick={onClose}
     >
       <div
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className="bg-neutral-900 rounded-xl sm:max-w-5xl w-full p-6 max-h-screen overflow-y-auto h-fit relative min-w-5xl min-h-1/2"
+        className="
+          bg-neutral-900 rounded-xl
+          w-full sm:w-auto
+          max-w-[95vw] sm:max-w-5xl
+          max-h-[90vh]
+          p-4 sm:p-6
+          overflow-y-auto
+          relative
+        "
       >
-        <div className="h-fit  bg-orange-400 rounded-lg mb-4 relative" >
-          <img src={item.img} alt={item.titles} className="rounded-lg"/>
+        {/* Image container */}
+        <div className="bg-orange-400 rounded-lg mb-4 overflow-hidden">
+          <img
+            src={item.img}
+            alt={item.titles}
+            className="
+              w-full
+              h-auto
+              max-h-[70vh]
+              object-contain
+              rounded-lg
+            "
+          />
         </div>
 
-        
-
-       
-
+        {/* Close button */}
         <button
           onClick={onClose}
-          className="mt-6 px-4 py-2 bg-yellow-400 text-white text-2xl font-bold rounded-full flex items-center justify-center w-12 h-12 absolute top-4 right-10"
-        > 
+          className="
+            absolute
+            top-3 right-3
+            sm:top-4 sm:right-4
+            w-10 h-10 sm:w-12 sm:h-12
+            bg-yellow-400
+            text-white
+            text-xl sm:text-2xl
+            font-bold
+            rounded-full
+            flex items-center justify-center
+            hover:scale-105 transition
+          "
+        >
           <AiOutlineClose />
         </button>
       </div>
@@ -44,3 +72,4 @@ const PreviewModal = ({ item, onClose }) => {
 };
 
 export default PreviewModal;
+
