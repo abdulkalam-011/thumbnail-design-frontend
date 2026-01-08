@@ -169,9 +169,9 @@ const About = () => {
         {/* Content */}
         <div className="text-center lg:text-left">
           <p className="text-yellow-400 text-sm tracking-widest mb-2">
-            WHY CHOOSE ME
+          Who I am
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">WHO I AM</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">I am Abdul Kalam</h2>
 
           <p className="text-white/70 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 font-bodoni">
             I design high-converting, visually striking thumbnails and UI
