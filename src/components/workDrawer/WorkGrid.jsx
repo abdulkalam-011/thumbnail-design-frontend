@@ -54,7 +54,7 @@ const WorkGrid = () => {
     <>
       <section className="py-10">
         <div className="  mb-10">
-          <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold uppercase font-montserrat text">
+          <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold font-montserrat text">
             Glimpse of my Work
           </h2>
           <p className="text-gray-400 text-sm text">Selected visual projects</p>
