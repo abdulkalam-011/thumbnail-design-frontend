@@ -80,11 +80,14 @@ const ContactForm = () => {
   // ✅ SUCCESS STATE
   if (success) {
     return (
-      <div className=" flex items-center justify-start bg-green-300 md:p-4 p-0 md:my-10 w-fit">
+      <div className=" flex items-center justify-start bg-green-400 md:p-4 p-0 md:my-10 w-fit rounded-3xl">
         <div className=" p-8 text-center text-white">
           <h2 className="text-xl font-semibold mb-2">Thank you! 🙌</h2>
           <p className="text-sm opacity-80">
             Your message has been sent successfully.
+            <br /> We will reach out you out as soon as possible on your email. <br /> 
+            <span className="font-semibold bg-amber-500 text-black">{form.email}</span>
+           
           </p>
         </div>
       </div>
@@ -100,7 +103,7 @@ const ContactForm = () => {
         data-netlify="true"
         netlify="true"
         onSubmit={handleSubmit}
-        className="w-full max-w-md bg-[#4c4a4a] py-6 px-2  md:p-6 space-y-4 rounded-md"
+        className="w-full max-w-md bg-black/30 py-6 px-2  md:p-6 space-y-4 rounded-md"
       >
         {/* Netlify required */}
         <input type="hidden" name="form-name" value="contact" />
@@ -114,7 +117,7 @@ const ContactForm = () => {
             value={form.name}
             focus={errors.name ? 'true' : 'false'}
             onChange={handleChange}
-            className={`w-full bg-[#7a7a7a] text-white px-3 py-2 outline-none ${errors.name && "border border-red-500 focus:ring-2 focus:ring-red-500"}`}
+            className={`w-full bg-[#7a7a7a] rounded text-white px-3 py-2 outline-none ${errors.name && "border border-red-500 focus:ring-2 focus:ring-red-500"}`}
           />
           {errors.name && (
             <p className="text-red-500 text-xs mt-1">{errors.name}</p>
@@ -129,7 +132,7 @@ const ContactForm = () => {
             placeholder="johndoe@gmail.com"
             value={form.email}
             onChange={handleChange}
-            className="w-full bg-[#7a7a7a] text-white px-3 py-2 outline-none"
+            className="w-full bg-[#7a7a7a] text-white px-3 py-2 outline-none rounded"
           />
           {errors.email && (
             <p className="text-red-500 text-xs mt-1">{errors.email}</p>
@@ -145,7 +148,7 @@ const ContactForm = () => {
             placeholder="Hi Abdul can You help me with..."
             value={form.message}
             onChange={handleChange}
-            className="w-full bg-[#7a7a7a] text-white px-3 py-2 resize-none outline-none"
+            className="w-full bg-[#7a7a7a] text-white px-3 py-2 resize-none outline-none rounded"
           />
           {errors.message && (
             <p className="text-red-500 text-xs mt-1">{errors.message}</p>
@@ -156,7 +159,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-white text-gray-700 py-3 text-sm font-medium flex items-center justify-center hover:bg-gray-200 transition disabled:opacity-70"
+          className="w-full bg-white rounded text-gray-700 py-3 text-sm font-medium flex items-center justify-center hover:bg-gray-200 transition disabled:opacity-70"
         >
           {loading ? (
             <span className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></span>
