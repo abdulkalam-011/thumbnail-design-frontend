@@ -10,6 +10,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import About from "./components/About";
 import MyProcess from "./components/MyProcess";
 import ThumbnailCaseStudy from "./components/ui/CaseStudy";
+import FAQ from "./components/FAQs";
 
 function App() {
   const [showMobileWarning, setShowMobileWarning] = useState(() =>
@@ -57,7 +58,7 @@ function App() {
         <div id="contact" className="w-full h-fit">
           <Contact />
         </div>
-        <section id="testimonials" className="bg-red-300"><MyProcess /></section>
+        <section id="testimonials" className=""><FAQ /></section>
         <Footer />
 
         <div className="fixed bottom-10 lg:right-20 md:right-10 right-5 bg-green-500 text-white p-2 rounded-full z-99 md:p-5">
