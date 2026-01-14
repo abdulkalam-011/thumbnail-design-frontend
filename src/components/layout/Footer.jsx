@@ -67,20 +67,16 @@ const Footer = () => {
       {/* CONTENT */}
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* CTA BOXES */}
-        {/* <div className="flex gap-4 sm:flex-initial bg-red-400">
-          <span className="p-5 w-[80%] bg-white text-black rounded-3xl flex justify-between items-center text-2xl">abdulkalam.buss@gmail.com<a className="bg-yellow-400 p-4  rounded-4xl text-xl" href="mailto:abdulkalam.buss@gmail.com" target="_blank">Send Message</a></span>
-          <span className="p-5 bg-white text-black rounded-3xl flex items-center"><a href="mailto:abdulkalam.buss@gmail.com" target="_blank">(+91) 8303778433 </a></span>
-        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 " >
           {/* EMAIL – PRIMARY CTA */}
           <a
-            ref={(el) => (cardsRef.current[0] = el)}
+            ref={(el) => (cardsRef.current[1] = el)}
             href="mailto:abdulkalam.buss@gmail.com"
             target="_blank"
             className="h-[180px] border-2 border-yellow-400 p-8
                        flex flex-col justify-between
                        hover:bg-yellow-400 hover:text-black
-                       transition-all duration-300 rounded-2xl"
+                       transition-all duration-300 rounded-2xl "
           >
             <span className="text-sm uppercase tracking-widest opacity-60">
               Email
