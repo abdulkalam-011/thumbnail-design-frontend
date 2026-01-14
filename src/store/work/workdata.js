@@ -4,7 +4,7 @@ export const workData = [
   
   {
     id: 1,
-    img: "/images/work1.jpg",
+    img: "/images/usmani-live-IRL.webp",
     title: "Tripti Gupta",
     span: "row-span-1",
   },
