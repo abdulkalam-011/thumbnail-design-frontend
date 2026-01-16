@@ -129,14 +129,14 @@ const FAQ = () => {
         Frequently Asked Questions (FAQ's).
       </h2>
 
-      <div className="max-w-4xl mx-auto space-y-3">
+      <div className="max-w-7xl mx-auto space-y-3">
         {faqs.map((faq, index) => (
           <div key={index} className=" bg-black/30 pb-4 p-5 rounded-2xl">
             <button
               onClick={() => toggleFAQ(index)}
               className="flex w-full items-center justify-between text-left"
             >
-              <span className="text-sm sm:text-base font-montserrat font-semibold">
+              <span className="text-sm sm:text-lg font-montserrat font-semibold">
                 {faq.question}
               </span>
 
