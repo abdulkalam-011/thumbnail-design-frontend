@@ -52,12 +52,12 @@ const WorkGrid = () => {
 
   return (
     <>
-      <section className="py-10">
-        <div className="  mb-10">
-          <h2 className="text-yellow-400 md:text-3xl text-2xl leading-6 font-bold font-montserrat text">
-            Glimpse of my Work
+      <section className="py-20 ">
+        <div className="mb-10 text-center max-w-2xl mx-auto space-y-3 font-bodoni">
+          <h2 className=" text text-3xl sm:text-4xl md:text-5xl font-bold">
+            Glimpse of My Work
           </h2>
-          <p className="text-gray-400 text-sm text">Selected visual projects</p>
+          <p className="text-gray-400 text-sm text">Browse through a collection of high-performing thumbnails across various niches.</p>
         </div>
 
         <div
@@ -105,6 +105,9 @@ const WorkGrid = () => {
             </div>
           ))}
         </div>
+       <div className="mt-10 mx-auto text-center">
+        <a className=" border border-zinc-700 rounded-full py-4 px-6 mx-auto hover:bg-yellow-400 bg-white text-black font-semibold hover:scale-105" href="#">More Work  →</a>
+       </div>
       </section>
 
       {activeItem && (
