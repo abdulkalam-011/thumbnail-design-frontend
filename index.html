@@ -31,12 +31,21 @@
     <meta name="google-site-verification" content="fdNmpmEBG89D0rrjHtUJPJzlGEhCbc8qvHKcDKf1qmw" />
   </head>
   <body>
-    <form name="contact" method="POST" data-netlify="true" netlify hidden>
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="text" name="name" id="name">
-      <input type="email" name="email" id="email">
-      <textarea name="message" id="message"></textarea>
-    </form>
+   <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  netlify
+  hidden
+>
+  <input type="hidden" name="form-name" value="contact-viral" />
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="channel" />
+  <textarea name="message"></textarea>
+</form>
+
     <div id="root" ></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
