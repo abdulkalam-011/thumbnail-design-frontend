@@ -1,204 +1,160 @@
 import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap, { Elastic } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaBolt, FaRedoAlt, FaPaintBrush, FaVideo } from "react-icons/fa";
+import { useGSAP } from "@gsap/react";
+import { FiCheck } from "react-icons/fi";
+import { FaArrowUpLong } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
-  const sectionRef = useRef(null);
-  const imageWrapRef = useRef(null);
+export default function About() {
+  const containerRef = useRef(null);
   const imageRef = useRef(null);
-  const glowRef = useRef(null);
-  const cardsRef = useRef([]);
+  const textRef = useRef(null);
 
   useGSAP(
     () => {
-      /* ================= Scroll Animations ================= */
-      gsap.fromTo(
-        imageRef.current,
-        { clipPath: "inset(100% 0% 0% 0%)" },
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.2,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-          },
-        }
-      );
+      /* WORD BY WORD REVEAL */
+      const words = textRef.current.querySelectorAll(".word");
 
-      gsap.from(imageWrapRef.current, {
-        x: -100,
+      gsap.from(words, {
         opacity: 0,
-        duration: 1,
+        y: 20,
+        rotateX: 45,
+        stagger: 0.02,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
+          trigger: textRef.current,
+          start: "top 99%",
+          end: "bottom 40%",
           scrub: true,
         },
       });
 
-      gsap.from(cardsRef.current, {
-        y: 50,
-        opacity: 0,
-        stagger: 0.03,
-        duration: 0.8,
-        ease: "power3.out",
+      /* PARALLAX IMAGE */
+      gsap.to(imageRef.current, {
+        y: -20,
+        ease: "power1.out",
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 70%",
+          trigger: imageRef.current,
+          start: "top bottom",
+          end: "bottom top",
           scrub: true,
         },
-      });
-
-      /* ================= Image Glow + Parallax ================= */
-      const wrap = imageWrapRef.current;
-
-      const onMove = (e) => {
-        const rect = wrap.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-
-        gsap.to(glowRef.current, {
-          x: x - 80,
-          y: y - 80,
-          opacity: 1,
-          duration: 0.25,
-          ease: "power2.out",
-        });
-
-        gsap.to(imageRef.current, {
-          rotateY: (x - cx) / 15,
-          rotateX: -(y - cy) / 15,
-          transformPerspective: 600,
-          duration: 0.3,
-          ease: "power2.out",
-        });
-      };
-
-      const onLeave = () => {
-        gsap.to(glowRef.current, { opacity: 0, duration: 0.3 });
-        gsap.to(imageRef.current, {
-          rotateX: 0,
-          rotateY: 0,
-          duration: 0.5,
-        ease: "elastic.out(1,0.3)"
-        });
-      };
-
-      wrap.addEventListener("mousemove", onMove);
-      wrap.addEventListener("mouseleave", onLeave);
-
-      /* ================= Magnetic Cards ================= */
-      cardsRef.current.forEach((card) => {
-        const strength = 20;
-
-        const cardMove = (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-
-          gsap.to(card, {
-            x: (x / rect.width) * strength,
-            y: (y / rect.height) * strength,
-            scale: 1.06,
-            duration: 0.3,
-            rotateZ: (x / rect.width) * 10,
-            ease: "power3.out",
-          });
-        };
-
-        const cardLeave = () => {
-          gsap.to(card, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            rotateZ: 0,
-            duration: 0.4,
-            ease: "power3.out",
-          });
-        };
-
-        card.addEventListener("mousemove", cardMove);
-        card.addEventListener("mouseleave", cardLeave);
       });
     },
-    { scope: sectionRef }
+    { scope: containerRef }
   );
 
-  const features = [
-    { icon: <FaBolt />, text: "Fast Delivery" },
-    { icon: <FaRedoAlt />, text: "Unlimited Revisions" },
-    { icon: <FaPaintBrush />, text: "Professional Design" },
-    { icon: <FaVideo />, text: "4K / HD Quality" },
-  ];
+  const splitWords = (text) =>
+    text.split(" ").map((word, i) => (
+      <span key={i} className="word inline-block mr-1">
+        {word}
+      </span>
+    ));
 
   return (
-    <div
-      ref={sectionRef}
-      className=" text-white py-5 px-5 sm:px-10 lg:px-20 font-montserrat " 
+    <section
+      ref={containerRef}
+      className="text-white px-4 md:px-10 overflow-hidden font-montserrat "
     >
-      <div className="grid lg:grid-cols-2 gap-8 items-center">
-        {/* Image */}
-        <div
-          ref={imageWrapRef}
-          className="relative mx-auto w-[260px] sm:w-[320px] md:w-[360px] h-[360px] sm:h-[420px] overflow-hidden"
-        >
-          <div className="absolute inset-0 border border-white/20" />
+      <div className="max-w-7xl mx-auto mb-16  flex flex-col sm:flex-row gap-4 items-center justify-between">
+        <div><p className="text-yellow-400 text-sm font-semibold uppercase">
+          The person behind the pixels
+        </p>
+        <h2 className="text-4xl md:text-5xl font-semibold mt-2">
+          Meet Abdul Kalam
+        </h2></div>
+        <span className="lg:w-[30%] lg:bg-zinc-800 lg:border lg:border-zinc-700 lg:py-2 lg:px-6 lg:rounded-full font-bodoni"><p>Visual storyteller, data nerd, and your partner in fighting the algorithm.</p></span>
+        
+      </div>
 
-          <div
-            ref={glowRef}
-            className="pointer-events-none absolute w-40 h-40 rounded-full bg-yellow-400/40 blur-3xl opacity-0"
-          />
-
-          <div
-            ref={imageRef}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <img src="/images/profile.jpg" alt="pfofile-picture" />
-            <div className="bg-yellow-400 w-[200px] sm:w-60 h-[130px] sm:h-[150px] rounded-full" />
-          </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+        {/* IMAGE CARD */}
+        <div className="bg-zinc-900 rounded-3xl px-6 py-3 grayscale-75 hover:grayscale-0 transition-all duration-300 ease-in-out bg-[url('/images/profile.jpg')] bg-cover bg-center flex flex-col items-start justify-between p-6 min-h-[400px]" ref={imageRef}>
+          <span className="inline-block bg-yellow-200 text-black text-xs font-semibold px-3 py-1 rounded-full mt-6 mb-4">
+            AVAILABLE FOR HIRE
+          </span>
+          <span>
+            {" "}
+            <h3 className="text-xl font-semibold">Abdul Kalam</h3>
+            <p className="text-sm text-gray-400">Senior Thumbnail Designer</p>
+          </span>
         </div>
 
-        {/* Content */}
-        <div className="text-center lg:text-left">
-          <p className="text-yellow-400 text-sm tracking-widest mb-2">
-          Who I am
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">I am Abdul Kalam</h2>
+        {/* CONTENT */}
+        <div className="lg:col-span-2 flex flex-col gap-6">
+          {/* TEXT REVEAL CARD */}
+          <div className="bg-zinc-900 border border-yellow-400/30 rounded-3xl p-6 relative">
+          <h1 className="absolute sm:top-10 lg:right-10 sm:text-9xl text-6xl font-bodoni text-zinc-800 right-3 top-20">"</h1>
+            <h3
+              
+              className="text-2xl md:text-3xl font-semibold leading-snug words"
+            >
+              I don't just design. I engineer 
+              <span className="text-yellow-400 mt-2 words">
+                 &nbsp;clicks.
+              </span>
+            </h3>
 
-          <p className="text-white/70 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0 font-bodoni">
-            I design high-converting, visually striking thumbnails and UI
-            sections that are optimized for engagement and clarity.
-          </p>
+            <p ref={textRef} className="text-gray-400 text-sm leading-relaxed mt-6 max-w-xl words overflow-hidden">
+              {splitWords(
+                "With over 5 years of experience, I’ve moved past “making things look pretty.” My approach blends psychology, composition, and analytics to turn views into clicks."
+              )}
+            </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {features.map((item, i) => (
-              <div
-                key={i}
-                ref={(el) => (cardsRef.current[i] = el)}
-                className="flex items-center gap-4 bg-yellow-400 text-black px-5 py-4 rounded-xl cursor-pointer sm:justify-start justify-evenly"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="bg-white p-3 rounded-full text-lg">
-                  {item.icon}
-                </div>
-                <span className="font-semibold">{item.text}</span>
-                </div>
-                
+            <div className="flex gap-6 mt-6 text-sm">
+              <div className="flex items-center gap-2">
+                <FiCheck className="text-yellow-400" />
+                5+ Years Exp.
               </div>
-            ))}
+              <div className="flex items-center gap-2">
+                <FiCheck className="text-yellow-400" />
+                500+ Projects
+              </div>
+            </div>
+          </div>
+
+          {/* BOTTOM GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-zinc-900 rounded-3xl p-6">
+              <h4 className="font-semibold text-lg mb-4">⚡ My Arsenal</h4>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  "Photoshop",
+                  "Blender 3D",
+                  "Midjourney",
+                  "Figma",
+                  "Lightroom",
+                ].map((tool) => (
+                  <span
+                    key={tool}
+                    className="bg-zinc-800/50 px-4 py-2 rounded-full text-sm hover:bg-zinc-800"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-yellow-400 text-black rounded-3xl p-6 flex flex-col justify-between items-start">
+              <div className=" w-full flex justify-between items-center">
+                <span>
+                <h3 className="text-4xl font-bold">100%</h3>
+                <p className="uppercase text-sm font-semibold">
+                  Satisfaction rate
+                </p>
+                </span>
+                <span className="text-green-500 bg-white p-3 rounded-full font-bold"><FaArrowUpLong /></span>
+              </div>
+
+              <a href="#contact" className="mt-6 font-semibold hover:underline underline-offset-4 hover:text-black/90 ">
+                Let’s Work Together →
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default About;
