@@ -13,22 +13,12 @@
 }
 
 
-section {
-  min-height: 100vh;
-  min-width: 100%;
-  font-family: "Bodoni Moda", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
 
 .font-montserrat {
  font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
-
-
 
 .arrow:hover .arrow span{
   opacity: 100%;

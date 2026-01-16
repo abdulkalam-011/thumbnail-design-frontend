@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
-import Contact from "./components/contact/Contact";
-import Hero from "./components/Hero";
-import ImageComprison from "./components/ImageComprison";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import WorkGrid from "./components/workDrawer/WorkGrid";
 import { IoLogoWhatsapp } from "react-icons/io";
 import About from "./components/About";
-import MyProcess from "./components/MyProcess";
 import ThumbnailCaseStudy from "./components/ui/CaseStudy";
 import FAQ from "./components/FAQs";
+import Hero from "./components/homeDrawer/Hero";
+import MyProcess from "./components/homeDrawer/MyProcess";
+import ContactForm from "./components/contact/Connect";
 
 function App() {
   const [showMobileWarning, setShowMobileWarning] = useState(() =>
@@ -40,25 +39,28 @@ function App() {
           </p>
         </div>
       )}
-      <div className="px-4 sm:px-10 md:px-15 lg:px-20 overflow-x-hidden">
+     
         <Header />
         <section id="hero" className="">
-          <Hero />
+         <Hero />
         </section>
-        <div id="about" className="h-fit mt-10">
+        <div id="about" className=" mt-10">
           <About/>
         </div>
-        <div id="compare-images" className="h-fit mt-10">
+        {/* <div id="compare-images" className="h-fit mt-10">
           <ThumbnailCaseStudy />
-        </div>
+        </div> */}
         
-        <section id="work" className="">
+        <section id="work" className="px-4 md:px-10 lg:px-20">
           <WorkGrid />
         </section>
-        <div id="contact" className="w-full h-fit">
-          <Contact />
+
+        <MyProcess />
+        <div id="contact" className="w-full h-fit font-montserrat">
+         <ContactForm />
         </div>
-        <section id="testimonials" className=""><FAQ /></section>
+
+        <section id="testimonials" className="px-4 md:px-10 lg:px-20"><FAQ /></section>
         <Footer />
 
         <div className="fixed bottom-10 lg:right-20 md:right-10 right-5 bg-green-500 text-white p-2 rounded-full z-99 md:p-5">
@@ -71,8 +73,7 @@ function App() {
             <IoLogoWhatsapp color="white" className="text-3xl md:text-6xl" />
           </a>
         </div>
-      </div>
-    </>
+      </>
   );
 }
 
