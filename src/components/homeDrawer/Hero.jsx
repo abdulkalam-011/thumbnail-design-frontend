@@ -79,13 +79,13 @@ export default function Hero() {
         className="absolute left-1/2 top-1/3 -translate-x-1/2 w-[320px] h-80
         sm:w-[420px] sm:h-[420px]
         md:w-[550px] md:h-[550px]
-        bg-black/40 blur-[120px] rounded-full"
+        bg-yellow-800/40 blur-[120px] rounded-full"
       />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 text-center">
         {/* Badge */}
-        <span className="inline-flex items-center gap-2 px-4 py-3 mb-6 text-xs sm:text-sm bg-white/10 rounded-full backdrop-blur mt-20 lg:mt-24 ">
+        <span className="inline-flex items-center gap-2 px-4 py-3 mb-6 text-xs sm:text-sm bg-white/10 rounded-full backdrop-blur mt-20 lg:mt-24 animate-pulse">
           🟢 Available for new projects
         </span>
 
@@ -106,12 +106,12 @@ export default function Hero() {
 
         {/* CTA */}
         <div className="mt-4 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:scale-105 transition">
+          <a href="#work" className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:scale-105 transition">
             View Portfolio →
-          </button>
-          <button className="px-6 py-3 rounded-full border border-white/40 hover:bg-white/10 transition">
-            Book a Call
-          </button>
+          </a>
+          <a href="#contact" className="px-6 py-3 rounded-full border border-white/40 hover:bg-white/10 transition">
+            Contact Me
+          </a>
         </div>
       </div>
 

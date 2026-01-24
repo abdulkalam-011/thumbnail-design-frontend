@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const FAQ = () => {
   const faqs = [
@@ -46,6 +47,7 @@ const FAQ = () => {
     },
   ];
 
+  const faqRef = useRef();
   const [openIndex, setOpenIndex] = useState(null);
   const contentRefs = useRef([]);
   const iconRefs = useRef([]);
@@ -106,7 +108,7 @@ const FAQ = () => {
         duration: 0.4,
         ease: "power2.out",
         onComplete: () => (content.style.height = "auto"),
-      }
+      },
     );
 
     gsap.fromTo(
@@ -117,21 +119,37 @@ const FAQ = () => {
         scale: 1.1,
         duration: 0.35,
         ease: "power2.out",
-      }
+      },
     );
 
     setOpenIndex(index);
   };
 
+  useGSAP(() => {
+    gsap.from(".faqs", {
+      opacity: 0,
+      y: 30,
+      skewX: -9,
+      stagger: 0.1,
+      x: "100%",
+      scrollTrigger: {
+        trigger: faqRef.current,
+        start: "top 80%",
+        end: "bottom 100%",
+       scrub:1
+      },
+    });
+  });
+
   return (
-    <section className="py-20 sm:px-8 lg:px-20 text-white">
+    <section className="py-20 sm:px-8 lg:px-20 text-white overflow-hidden">
       <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12 font-montserrat text-yellow-500">
         Frequently Asked Questions (FAQ's).
       </h2>
 
-      <div className="max-w-7xl mx-auto space-y-3">
+      <div ref={faqRef} className="max-w-7xl mx-auto space-y-3">
         {faqs.map((faq, index) => (
-          <div key={index} className=" bg-black/30 pb-4 p-5 rounded-2xl">
+          <div key={index} className=" bg-black/30 pb-4 p-5 rounded-2xl faqs">
             <button
               onClick={() => toggleFAQ(index)}
               className="flex w-full items-center justify-between text-left"

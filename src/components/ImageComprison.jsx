@@ -1,4 +1,3 @@
-import React from 'react'
 import CompareImage from './ui/CompareImage'
 
 const ImageComprison = () => {

@@ -120,16 +120,16 @@ const ContactForm = () => {
 
   /* ---------------- FORM UI (MATCH IMAGE) ---------------- */
   return (
-    <section className="min-h-screen flex items-center  justify-center bg-[linear-gradient(to_bottom,yellow,#313131)] mt-10">
+    <section className="min-h-screen flex items-center  justify-center bg-[linear-gradient(to_bottom,yellow,#313131)] mt-10 font-montserrat">
       <div
         ref={formRef}
-        className="relative w-full max-w-3xl bg-zinc-900 sm:rounded-2xl p-6 md:p-10"
+        className="relative w-full max-w-3xl bg-zinc-900 sm:rounded-2xl p-6 md:p-10 "
       >
-        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center font-bodoni">
           Let’s Create Something Viral
         </h2>
 
-        <p className="text-center text-zinc-400 text-sm mt-2">
+        <p className="text-center text-zinc-400 text-sm mt-2 font-bodoni">
           Fill out the form below or DM me on Twitter.
         </p>
 

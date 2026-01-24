@@ -56,10 +56,10 @@ const Footer = () => {
       {/* WATERMARK */}
       <h1
         ref={watermarkRef}
-        className="absolute inset-0 flex items-center justify-center text-5xl
-                   sm:text-[150px] font-extrabold uppercase
+        className="absolute inset-0 flex items-center justify-center text-2xl
+                   sm:text-8xl font-extrabold uppercase
                    text-white/10 sm:whitespace-nowrap
-                   pointer-events-none select-none top-60"
+                   pointer-events-none select-none -bottom-180 sm:-bottom-80"
       >
         LET’S CONNECT
       </h1>

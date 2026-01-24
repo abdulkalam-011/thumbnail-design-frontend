@@ -1,6 +1,39 @@
+import { useGSAP } from "@gsap/react";
+
+import gsap from "gsap";
+import { useRef } from "react";
 import { FiSearch, FiEdit3, FiLayers } from "react-icons/fi";
 
 export default function Process() {
+  const gridRef = useRef()
+
+  useGSAP(()=>{
+    // gsap.from('.contain',{
+    //   scale:1.4,
+    //   opacity:.30,
+    //   skewY:2,
+    //   scrollTrigger:{
+        
+    //     trigger:'.contain',
+    //     scrub:true,
+    //     markers:true,
+    //   }
+    // })
+    gsap.from(".steps",{
+      opacity:.2,
+      y:40,
+      width:0,
+      skewX:-7,
+      scale:.6,
+      stagger:.2,
+      scrollTrigger:{
+        trigger: gridRef.current,
+        start:"top 0%",
+        end:"bottom 0%",
+        scrub:1,
+      }
+    })
+  })
   const steps = [
     {
       step: "01",
@@ -34,24 +67,24 @@ export default function Process() {
   ];
 
   return (
-    <section className=" text-white py-10">
+    <section className=" text-white py-10 relative overflow-hidden ">
       {/* Heading */}
       <div className="text-center px-4 font-bodoni">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
           My Creative Process
         </h2>
-        <p className="mt-3 text-sm sm:text-base text-gray-400">
+        <p className="mt-3 text-sm sm:text-base text-gray-400 text">
           From concept to click-worthy in 4 steps.
         </p>
       </div>
 
       {/* Cards */}
       <div className="sm:mt-20 mt-10 max-w-6xl mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {steps.map((item, i) => (
             <div
               key={i}
-              className={`relative rounded-2xl p-6 bg-white/5 border ${
+              className={`relative steps rounded-2xl p-6 bg-white/5 border ${
                 item.highlight
                   ? "border-yellow-400"
                   : "border-white/10"
