@@ -54,7 +54,9 @@ const ContactForm = () => {
     if (!form.email.includes("@gmail.com")) {
       newErrors.email = "Only Gmail addresses allowed";
     }
-
+    if (!form.channel.startsWith("https://youtube.com/") && form.channel.trim() !== "") {
+      newErrors.channel = "Channel link must start with https://youtube.com/";
+    }
     if (form.message.trim().length < 10) {
       newErrors.message = "Please describe your project";
     }
@@ -169,6 +171,7 @@ const ContactForm = () => {
             name="channel"
             value={form.channel}
             onChange={handleChange}
+            error={errors.channel}
             placeholder="https://youtube.com/..."
           />
 
