@@ -101,10 +101,11 @@ const ContactForm = () => {
         name="contact"
         method="POST"
         data-netlify="true"
-        netlify="true"
+          action="/success"
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-black/30 py-6 px-2  md:p-6 space-y-4 rounded-md"
       >
+        <input type="hidden" name="bot-field" />
         {/* Netlify required */}
         <input type="hidden" name="form-name" value="contact" />
 

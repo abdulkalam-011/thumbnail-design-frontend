@@ -137,11 +137,12 @@ const ContactForm = () => {
           name="contact"
           method="POST"
           data-netlify="true"
+          action="/success"
           onSubmit={handleSubmit}
           className="mt-8 space-y-5"
         >
-          <input type="hidden" name="form-name" value="contact-viral" />
-
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
           {/* NAME + EMAIL */}
           <div className="grid md:grid-cols-2 gap-4">
             <Input
