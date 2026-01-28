@@ -13,6 +13,7 @@
     "@gsap/react": "^2.1.2",
     "@reduxjs/toolkit": "^2.11.0",
     "@tailwindcss/vite": "^4.1.17",
+    "emailjs-com": "^3.2.0",
     "gsap": "^3.13.0",
     "react": "^19.2.0",
     "react-compare-image": "^3.5.13",

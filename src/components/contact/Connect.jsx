@@ -1,11 +1,16 @@
 import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
+import emailjs from "emailjs-com";
+
 import { FiCheck } from "react-icons/fi";
 import { FaTwitter, FaInstagram, FaDiscord, FaBehance } from "react-icons/fa";
 
 const ContactForm = () => {
   const formRef = useRef(null);
   const tickRef = useRef(null);
+  const EMAILJS_PUBLIC_KEY = "YiuPM0QwhYHYMyk_W";
+  const EMAILJS_SERVICE_ID = "service_2vuliot";
+  const EMAILJS_TEMPLATE_ID = "template_z683y5p";
 
   const [form, setForm] = useState({
     name: "",
@@ -18,22 +23,27 @@ const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
+
   /* ---------------- SHAKE ANIMATION ---------------- */
   const shakeForm = () => {
     gsap.fromTo(
       formRef.current,
       { x: -8 },
-      { x: 8, duration: 0.06, repeat: 6, yoyo: true }
+      { x: 8, duration: 0.06, repeat: 6, yoyo: true },
     );
   };
 
   /* ---------------- SUCCESS TICK ---------------- */
   useEffect(() => {
+    
     if (success) {
       gsap.fromTo(
         tickRef.current,
         { scale: 0, rotate: -90 },
-        { scale: 1, rotate: 0, duration: 0.6, ease: "back.out(1.7)" }
+        { scale: 1, rotate: 0, duration: 0.6, ease: "back.out(1.7)" },
       );
     }
   }, [success]);
@@ -54,7 +64,10 @@ const ContactForm = () => {
     if (!form.email.includes("@gmail.com")) {
       newErrors.email = "Only Gmail addresses allowed";
     }
-    if (!form.channel.startsWith("https://youtube.com/") && form.channel.trim() !== "") {
+    if (
+      !form.channel.startsWith("https://youtube.com/") &&
+      form.channel.trim() !== ""
+    ) {
       newErrors.channel = "Channel link must start with https://youtube.com/";
     }
     if (form.message.trim().length < 10) {
@@ -84,9 +97,14 @@ const ContactForm = () => {
         method: "POST",
         body: formData,
       });
+
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        name: form.name,
+        email: form.email,
+      });
       setSuccess(true);
     } catch (err) {
-      alert("Submission failed",err);
+      alert("Submission failed", err);
     } finally {
       setLoading(false);
     }
@@ -104,13 +122,9 @@ const ContactForm = () => {
             <FiCheck size={32} />
           </div>
 
-          <h2 className="text-2xl font-semibold text-white">
-            Thank you!
-          </h2>
+          <h2 className="text-2xl font-semibold text-white">Thank you!</h2>
 
-          <p className="text-zinc-400 mt-3">
-            We’ll reach you out soon on
-          </p>
+          <p className="text-zinc-400 mt-3">We’ll reach you out soon on</p>
 
           <p className="text-yellow-400 font-medium mt-1 break-all">
             {form.email}
@@ -139,6 +153,7 @@ const ContactForm = () => {
           name="contact"
           method="POST"
           data-netlify="true"
+          netlify-honeypot="bot-field"
           action="/success"
           onSubmit={handleSubmit}
           className="mt-8 space-y-5"
