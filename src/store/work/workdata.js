@@ -5,13 +5,13 @@ export const workData = [
   {
     id: 1,
     img: "/images/usmani-live-IRL.webp",
-    title: "Tripti Gupta",
+    title: "usmani live",
     span: "row-span-1",
   },
   {
     id: 2,
-    img: "/images/podcast_mental&business.jpg",
-    title: "Alex",
+    img: "/images/ai-guys-a.jpg",
+    title: "The ai guys podcast",
     span: "row-span-1",
   },
   {
@@ -28,20 +28,20 @@ export const workData = [
   },
   {
     id: 5,
-    img: "/images/zakir-x-rajshamani.jpg",
-    title: "Project Five",
+    img: "/images/usmani-x-gojo-live-vfinal.jpg",
+    title: "usmani live",
     span: "row-span-1",
   },
   {
     id: 6,
-    img: "/images/tripti.webp",
-    title: "Project Six",
+    img: "/images/zakir-x-rajshamani.webp",
+    title: "raj shamani",
     span: "row-span-1",
   },
   {
     id: 7,
-    img: "/images/tripti.webp",
-    title: "Project Six",
+    img: "/images/gtmsharma_trends.jpg",
+    title: "gtm sharma",
     span: "row-span-1",
   },
 ]
