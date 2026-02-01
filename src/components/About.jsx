@@ -100,10 +100,10 @@ export default function About() {
       className="text-white px-4 md:px-10 overflow-hidden font-montserrat "
     >
       <div ref={introRef} className=" text-center sm:text-left  max-w-7xl mx-auto mb-16  flex flex-col sm:flex-row items-center justify-between ">
-        <div><p className="text-yellow-400 text-sm font-semibold uppercase leading-tight">
+        <div><p className="text-yellow-400 text-[10px] sm:text-sm font-semibold uppercase leading-tight">
           The person behind the pixels
         </p>
-        <h2 className="text-4xl md:text-5xl font-semibold">
+        <h2 className="text-3xl md:text-4xl font-semibold">
           Meet Abdul Kalam
         </h2></div>
         <span className="lg:w-[30%] lg:bg-zinc-800 lg:border lg:border-zinc-700 lg:py-2 lg:px-4 lg:rounded-2xl  font-bodoni"><p>Visual storyteller, data nerd, and your partner in fighting the algorithm.</p></span>
