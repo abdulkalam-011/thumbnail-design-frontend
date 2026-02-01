@@ -34,8 +34,8 @@ function App() {
             ✕
           </button>
           <p className="font-bold">
-            For the best experience, please view this portfolio on a desktop or
-            laptop device.
+            For The Best Experience, Please Visit This Portfolio On A Desktop
+            Device.
           </p>
         </div>
       )}
