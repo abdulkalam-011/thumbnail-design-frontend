@@ -34,13 +34,13 @@ export const workData = [
   },
   {
     id: 6,
-    img: "/images/zakir-x-rajshamani.webp",
+    img: "/images/shruti-v1.jpg",
     title: "raj shamani",
     span: "row-span-1",
   },
   {
     id: 7,
-    img: "/images/gtmsharma_trends.jpg",
+    img: "/images/alex-hormonzi-email-campaign-black.jpg",
     title: "gtm sharma",
     span: "row-span-1",
   },
